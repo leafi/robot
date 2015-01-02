@@ -1,6 +1,6 @@
 -- msg.lua
 --
--- Queues things to happen a few frames later, for everyone.
+-- Queues things to happen a few ticks later, for everyone.
 -- (The server needs to remember everything that's happened and call
 --  that a save file.)
 
@@ -14,7 +14,7 @@ local msg = {
 
     q = {}, -- actions queued to be sent this tick
 
-    recv = {}, -- frames we have information for from server
+    recv = {}, -- ticks we have information for from server
     sent = {}, -- for debugging
 
     tickTime = 100, -- ms
@@ -108,7 +108,7 @@ function msg.update(dt)
 
         local t = msg.currentTick + msg.tickDelay
 
-        -- package up & send msg.q, for frame (msg.currentTick + msg.tickDelay)
+        -- package up & send msg.q, for tick (msg.currentTick + msg.tickDelay)
         -- get .peer from connect ev, call :send() with string containing serialized q
 
         msg.sent[t] = msg.q

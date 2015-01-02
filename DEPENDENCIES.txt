@@ -1,0 +1,2 @@
+- install love2d 0.9.1 (latest)
+- install lua-enet by leafo (no relation) http://leafo.net/lua-enet
